@@ -29,7 +29,7 @@ for i in foot_names:
     df_res['섭취일'] = eat_day
     df_res['섭취시간'] = eat_time
     
-st.subheader(f"섭취한 음식의 총 칼로리는 :red[{(df_res['1인분칼로리(kcal)'].sum())*quantity} Kcal]입니다.(:red[{quantity}]인분 기준)")
+st.subheader(f"섭취한 음식의 총 칼로리는 :red[{(df_res['에너지(kcal)'].sum())*quantity} Kcal]입니다.(:red[{quantity}]인분 기준)")
 col1,col2,col3 = st.columns(3)
 with col2:
     save_button = st.button(':green[섭취 기록 저장]',use_container_width=True)
