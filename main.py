@@ -2,7 +2,8 @@ import pandas as pd
 import streamlit as st
 
 
-df = pd.DataFrame(pd.read_csv('wholefood.csv'))
+# df = pd.DataFrame(pd.read_csv('wholefood.csv'))
+df = pd.DataFrame(pd.read_csv('data1.csv'))
 
 title = "<h1 style='text-align: center;color: #FBEEAC; background-color:#1D5D9B;'>My Food History</h1>"
 st.markdown(title, unsafe_allow_html=True)
@@ -22,9 +23,10 @@ st.write('')
 st.write('')
 st.write('')
 st.write('')
-df_res = pd.DataFrame({'섭취일':[],'섭취시간':[],'식품명':[],'에너지(kcal)':[]})#,'탄수화물(g)':[],'단백질(g)':[],'지질(g)':[],'콜레스트롤(g)':[],'나트륨(mg)':[],'식품코드':[]})
+df_res = pd.DataFrame({'섭취일':[],'섭취시간':[],'식품명':[],'에너지(kcal)':[]},'탄수화물(g)':[],'단백질(g)':[],'지질(g)':[],'콜레스트롤(g)':[],'나트륨(g)':[])
+# df_res = pd.DataFrame({'섭취일':[],'섭취시간':[],'식품명':[],'에너지(kcal)':[],'탄수화물(g)':[],'단백질(g)':[],'지질(g)':[],'콜레스트롤(g)':[],'나트륨(mg)':[],'식품코드':[]})
 for i in foot_names:
-    ddf = df[df['식품명']==i].loc[:,['식품명','에너지(kcal)']]#,'탄수화물(g)','단백질(g)','지질(g)','콜레스트롤(g)','나트륨(mg)','식품코드']]
+    ddf = df[df['식품명']==i].loc[:,['식품명','에너지(kcal)','탄수화물(g)','단백질(g)','지질(g)','콜레스트롤(g)','나트륨(g)','식품코드']]
     df_res = pd.concat([df_res,ddf])
     df_res['섭취일'] = eat_day
     df_res['섭취시간'] = eat_time
