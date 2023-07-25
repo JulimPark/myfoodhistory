@@ -14,7 +14,7 @@ st.write('')
 with st.expander('섭취정보 입력'):
     eat_day = st.date_input('섭취 :blue[날짜]를 입력하세요')
     eat_time = st.time_input('섭취 :blue[시간]을 입력하세요')
-    food_list = df.음식명.to_list()
+    food_list = df.식품명.to_list()
     foot_names = st.multiselect('섭취한 음식을 입력하세요',food_list)
     quantity = st.slider('몇 인분 먹었나요?',1,20,1)
 st.divider()
@@ -24,7 +24,7 @@ st.write('')
 st.write('')
 df_res = pd.DataFrame({'섭취일':[],'섭취시간':[],'식품명':[],'에너지(kcal)':[],'탄수화물(g)':[],'단백질(g)':[],'지질(g)':[],'콜레스트롤(g)':[],'나트륨(g)':[],'식품코드':[]})
 for i in foot_names:
-    ddf = df[df['음식명']==i].loc[:,['식품명','에너지(kcal)','탄수화물(g)','단백질(g)','지질(g)','콜레스트롤(g)','나트륨(g)','식품코드']]
+    ddf = df[df['식품명']==i].loc[:,['식품명','에너지(kcal)','탄수화물(g)','단백질(g)','지질(g)','콜레스트롤(g)','나트륨(g)','식품코드']]
     df_res = pd.concat([df_res,ddf])
     df_res['섭취일'] = eat_day
     df_res['섭취시간'] = eat_time
